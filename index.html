@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Владимиров Александр — QA-инженер</title>
+<meta name="description" content="Портфолио начинающего QA-инженера: тест-план, чек-листы, тест-кейсы, отчёты о дефектах и автотесты на реальном веб-сервисе.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f6f7f9;
+    --surface-2: #eef0f3;
+    --line: #dfe3e8;
+    --ink: #16191d;
+    --muted: #5c6673;
+    --faint: #8b95a1;
+    --accent: #c2410c;
+    --accent-soft: #fdf0e9;
+    --ok: #15803d;
+    --warn: #b45309;
+    --danger: #b91c1c;
+    --radius: 12px;
+    --maxw: 820px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14171a;
+      --surface: #1b1f23;
+      --surface-2: #22272c;
+      --line: #2e353c;
+      --ink: #e8eaed;
+      --muted: #a2adb9;
+      --faint: #7c8793;
+      --accent: #fb923c;
+      --accent-soft: #2a1d14;
+      --ok: #4ade80;
+      --warn: #fbbf24;
+      --danger: #f87171;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 16px; }
+  header { padding: 56px 0 32px; border-bottom: 1px solid var(--line); }
+  h1 { font-size: clamp(28px, 5vw, 40px); line-height: 1.15; margin: 0 0 8px; letter-spacing: -0.02em; }
+  .role { color: var(--accent); font-weight: 600; font-size: 17px; margin: 0 0 16px; }
+  .lead { color: var(--muted); font-size: 17px; margin: 0 0 20px; max-width: 60ch; }
+  .contacts { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+  .contacts a {
+    display: inline-block; padding: 7px 13px; border: 1px solid var(--line);
+    border-radius: 999px; color: var(--ink); text-decoration: none; font-size: 15px;
+    background: var(--surface);
+  }
+  .contacts a:hover { border-color: var(--accent); color: var(--accent); }
+  section { padding: 36px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: 0; }
+  h2 { font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); margin: 0 0 18px; font-weight: 600; }
+  h3 { font-size: 19px; margin: 0 0 6px; letter-spacing: -0.01em; }
+  p { margin: 0 0 14px; }
+  a { color: var(--accent); }
+  .card {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 20px; margin-bottom: 14px;
+  }
+  .card__meta { color: var(--faint); font-size: 14px; margin: 0 0 12px; }
+  .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin: 16px 0; }
+  .metric { background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+  .metric b { display: block; font-size: 24px; letter-spacing: -0.02em; }
+  .metric span { color: var(--muted); font-size: 13px; }
+  ul.clean { list-style: none; padding: 0; margin: 0 0 14px; }
+  ul.clean li { padding-left: 18px; position: relative; margin-bottom: 7px; }
+  ul.clean li::before { content: "—"; position: absolute; left: 0; color: var(--faint); }
+  .bug { border-left: 3px solid var(--line); padding: 2px 0 2px 14px; margin-bottom: 14px; }
+  .bug--major { border-left-color: var(--danger); }
+  .bug b { display: block; }
+  .bug span { color: var(--muted); font-size: 15px; }
+  .tag {
+    display: inline-block; font-size: 12px; font-weight: 600; padding: 2px 8px;
+    border-radius: 999px; background: var(--accent-soft); color: var(--accent); margin-left: 6px;
+    vertical-align: 2px;
+  }
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  .skills h4 { margin: 0 0 8px; font-size: 15px; }
+  .skills p { color: var(--muted); font-size: 15px; margin: 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  td { padding: 7px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  td:first-child { color: var(--muted); width: 38%; padding-right: 14px; }
+  tr:last-child td { border-bottom: 0; }
+  footer { padding: 28px 0 56px; color: var(--faint); font-size: 14px; }
+  @media (max-width: 480px) { header { padding-top: 36px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Владимиров Александр</h1>
+  <p class="role">Начинающий QA-инженер · Саратов</p>
+  <p class="lead">
+    Студент 4 курса по специальности «Информационная безопасность». Разрабатываю
+    и тестирую веб-приложения: сначала собрал сервис расчёта на React, затем
+    протестировал его как отдельный продукт — с тест-планом, кейсами, отчётами
+    о дефектах и автотестами.
+  </p>
+  <ul class="contacts">
+    <li><a href="https://t.me/Sashqw1">Telegram @Sashqw1</a></li>
+    <li><a href="mailto:vladimirov3105@gmail.com">vladimirov3105@gmail.com</a></li>
+    <li><a href="https://github.com/Sashqw1">GitHub</a></li>
+  </ul>
+</header>
+
+<section>
+  <h2>Ключевой кейс</h2>
+  <div class="card">
+    <h3>Тестирование веб-сервиса ROBOCALC</h3>
+    <p class="card__meta">Полный цикл: тест-план → чек-листы → тест-кейсы → дефекты → автотесты</p>
+    <p>
+      Сервис подбирает роботизированную технику под объект и считает окупаемость
+      вложений. Проверял прежде всего то, ради чего он существует, — достоверность
+      расчёта: что происходит при пустом составе оборудования, нулевых затратах
+      и сценарии, который не окупается.
+    </p>
+    <div class="metrics">
+      <div class="metric"><b>20</b><span>тест-кейсов</span></div>
+      <div class="metric"><b>69</b><span>проверок в чек-листах</span></div>
+      <div class="metric"><b>7</b><span>найденных дефектов</span></div>
+      <div class="metric"><b>13</b><span>автотестов</span></div>
+    </div>
+    <p><strong>Самое интересное из найденного:</strong></p>
+    <div class="bug bug--major">
+      <b>Экономия из ничего <span class="tag">Major</span></b>
+      <span>При пустом составе оборудования расчёт показывал годовую экономию
+      260 000 ₽ и срок окупаемости — хотя не куплено ни одного робота.</span>
+    </div>
+    <div class="bug bug--major">
+      <b>Поле показывает одно, в расчёт уходит другое <span class="tag">Major</span></b>
+      <span>Ввод «12абв» оставался в поле как есть, а в расчёт уходило 12.
+      Ни ошибки, ни подсветки — проверить по интерфейсу невозможно.</span>
+    </div>
+    <div class="bug">
+      <b>Расхождение данных и выгрузки <span class="tag">Minor</span></b>
+      <span>Срок окупаемости хранился как <code>Infinity</code> вместо <code>null</code>
+      и при экспорте в JSON превращался в <code>null</code>. Интерфейс дефект маскировал.</span>
+    </div>
+    <p>
+      <a href="https://github.com/Sashqw1/qa-portfolio-auth">Все артефакты в репозитории</a> ·
+      <a href="https://sashqw1.github.io/Sashqw1-robocalc/">открыть тестируемый сервис</a>
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2>Материалы</h2>
+  <ul class="clean">
+    <li><a href="https://github.com/Sashqw1/qa-portfolio-auth/blob/main/docs/test-plan.md">Тест-план</a> — объём работ, техники тест-дизайна, риски, критерии завершения</li>
+    <li><a href="https://github.com/Sashqw1/qa-portfolio-auth/blob/main/docs/test-cases.md">Тест-кейсы</a> — 20 кейсов с предусловиями, шагами и ожидаемым результатом</li>
+    <li><a href="https://github.com/Sashqw1/qa-portfolio-auth/tree/main/bugs">Отчёты о дефектах</a> — 7 дефектов с шагами воспроизведения и доказательствами</li>
+    <li><a href="https://github.com/Sashqw1/qa-portfolio-auth/blob/main/docs/checklist-wizard.md">Чек-лист визарда</a> и <a href="https://github.com/Sashqw1/qa-portfolio-auth/blob/main/docs/checklist-ui.md">чек-лист интерфейса</a> — 69 проверок</li>
+    <li><a href="https://github.com/Sashqw1/qa-portfolio-auth/blob/main/docs/traceability.md">Матрица трассируемости</a> — 15 требований и их покрытие</li>
+    <li><a href="https://github.com/Sashqw1/qa-portfolio-auth/blob/main/automation/README.md">Автотесты</a> — Vitest и Testing Library</li>
+    <li><a href="https://github.com/Sashqw1/qa-portfolio-auth/blob/main/docs/api-checks.md">Проверка API</a> — позитивные и негативные кейсы, тесты в Postman</li>
+    <li><a href="https://github.com/Sashqw1/qa-portfolio-auth/blob/main/docs/sql-basics.md">SQL для проверки данных</a> — выборки, объединения, поиск расхождений</li>
+    <li><a href="https://github.com/Sashqw1/qa-portfolio-auth/blob/main/docs/devtools.md">DevTools</a> — что смотреть в Console, Network и хранилищах</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Что умею</h2>
+  <div class="skills">
+    <div>
+      <h4>Тест-дизайн</h4>
+      <p>Классы эквивалентности, граничные значения, таблицы решений, переходы
+      состояний, исследовательское тестирование.</p>
+    </div>
+    <div>
+      <h4>Документация</h4>
+      <p>Тест-план, чек-листы, тест-кейсы, отчёты о дефектах, матрица
+      трассируемости требований.</p>
+    </div>
+    <div>
+      <h4>SQL — базовый уровень</h4>
+      <p>Выборки с условием и сортировкой, объединение таблиц, группировка
+      с подсчётом. Отдельно разобрал запросы для поиска расхождений в данных.</p>
+    </div>
+    <div>
+      <h4>DevTools</h4>
+      <p>Console и Network для поиска ошибок и разбора запросов, эмуляция
+      размеров экрана, проверка хранилищ браузера.</p>
+    </div>
+    <div>
+      <h4>Инструменты</h4>
+      <p>Git и GitHub, Postman для запросов к API, Vitest и Testing Library
+      для автотестов, Markdown для документации.</p>
+    </div>
+    <div>
+      <h4>Разработка</h4>
+      <p>JavaScript и TypeScript, React, Python. Понимаю код приложения,
+      которое тестирую, и могу указать на причину дефекта, а не только на симптом.</p>
+    </div>
+    <div>
+      <h4>Изучаю сейчас</h4>
+      <p>Playwright для сквозных сценариев, трекеры задач и тест-кейсов
+      (Jira, TestRail), тестирование производительности.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Другие проекты</h2>
+
+  <div class="card">
+    <h3>ROBOCALC — фронтенд сервиса расчёта роботизации</h3>
+    <p class="card__meta">Командный хакатон · React 19, TypeScript, Vite</p>
+    <p>
+      Собрал интерфейс целиком: 28 экранов, дизайн-система со светлой и тёмной
+      темами, визард из восьми шагов с валидацией форм, итоговый дашборд и отчёт.
+      Отдельно — согласование контрактов данных и API с остальной командой.
+    </p>
+    <p>
+      <a href="https://sashqw1.github.io/Sashqw1-robocalc/">Живое демо</a> ·
+      <a href="https://github.com/Sashqw1/Sashqw1-robocalc">исходники</a> ·
+      <a href="https://sashqw1.github.io/Sashqw1-robocalc/screen-map.html">карта экранов</a>
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Автономная навигация: квадрокоптер и наземный робот</h3>
+    <p class="card__meta">Отборочный тур GeoScan 2025 · Python, OpenCV</p>
+    <p>
+      Задача: дрон сканирует лесную местность с воздуха, по снимкам строится
+      маршрут, наземный робот проходит его от старта до финиша в обход
+      препятствий — реки, брёвен, камней.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Практикумы по информационной безопасности</h3>
+    <p class="card__meta">СГТУ · ScanOVAL, ANY.RUN, MITRE ATT&amp;CK</p>
+    <p>
+      Анализ защищённости рабочей станции сканером ScanOVAL из реестра ФСТЭК:
+      нашёл 1118 уязвимостей, разобрал источники и довёл результат до 45 при нуле
+      критических. Отдельная работа — разбор поведения вредоносного ПО трёх
+      классов в песочнице ANY.RUN с сопоставлением техник по MITRE ATT&amp;CK.
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2>Образование</h2>
+  <table>
+    <tr>
+      <td>Вуз</td>
+      <td>СГТУ имени Гагарина Ю. А., Саратов</td>
+    </tr>
+    <tr>
+      <td>Специальность</td>
+      <td>Информационная безопасность, 4 курс</td>
+    </tr>
+    <tr>
+      <td>Что из этого полезно в QA</td>
+      <td>Привычка искать не «работает ли», а «где сломается»: модели угроз,
+      анализ уязвимостей и разбор поведения ПО — это то же мышление, что и в
+      тестировании, только с другой стороны.</td>
+    </tr>
+  </table>
+</section>
+
+<footer>
+  Страница собрана без внешних библиотек и размещена на GitHub Pages.
+  Исходный код — в <a href="https://github.com/Sashqw1/qa-portfolio-auth">репозитории портфолио</a>.
+</footer>
+
+</div>
+</body>
+</html>
